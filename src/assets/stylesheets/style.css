@@ -1,0 +1,17 @@
+/*
+  Application custom stylesheet
+*/
+
+[ng-cloak] {
+  display: none;
+}
+
+md-chips .md-chips {
+  box-shadow: none;
+}
+
+.footer {
+  text-align: center;
+  padding-top: 10px;
+  padding-right: 10px;
+}

@@ -1,0 +1,27 @@
+<md-content flex layout-padding>
+  <h3>{{homeCtrl.account.origin}}</h3>
+  <md-chips ng-model="homeCtrl.account.tags" readonly="true" md-removable="false"></md-chips>
+
+  <form name="accountForm">
+    <md-input-container class="md-block">
+      <label>Your account user name</label>
+      <input type="text" name="userName" ng-model="homeCtrl.account.user" md-noasterisk required>
+      <div ng-messages="accountForm.userName.$error">
+        <div ng-message="required">The user name is required</div>
+      </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+      <label>Your account password</label>
+      <input type="password" name="userPassword" ng-model="homeCtrl.account.password" md-noasterisk required>
+      <div ng-messages="accountForm.userPassword.$error">
+        <div ng-message="required">The user password is required</div>
+      </div>
+    </md-input-container>
+
+    <div layout="row" layout-align="center center" layout-wrap>
+      <md-button class="md-raised md-primary">Edit</md-button>
+      <md-button class="md-raised md-warn">Cancel</md-button>
+    </div>
+  </form>
+</md-content>

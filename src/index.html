@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="author" content="medhi redjem">
+  <meta name="description" content="">
+  <title>Password Keeper</title>
+  <link rel="stylesheet" href="assets/stylesheets/reset.css">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
+  <link rel="stylesheet" href="assets/stylesheets/style.css">
+</head>
+<body ng-cloak>
+  <div class="container" layout="column">
+    <status></status>
+    <div layout="row">
+      <categories></categories>
+      <ng-view flex></ng-view>
+    </div>
+    <notifications></notifications>
+  </div>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-material-icons/angular-material-icons.js"></script>
+  <script src="javascripts/app.js"></script>
+  <script src="javascripts/view-home/home.config.js"></script>
+  <script src="javascripts/view-home/home.controller.js"></script>
+  <script src="javascripts/view-help/help.config.js"></script>
+  <script src="javascripts/view-help/help.controller.js"></script>
+  <script src="javascripts/components/directives/index.js"></script>
+  <script src="javascripts/components/directives/status/status.directive.js"></script>
+  <script src="javascripts/components/directives/category/category.directive.js"></script>
+  <script src="javascripts/components/directives/categories/categories.directive.js"></script>
+  <script src="javascripts/components/directives/notifications/notifications.directive.js"></script>
+</body>
+</html>

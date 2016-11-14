@@ -1,0 +1,16 @@
+<md-content layout-padding>
+  <md-sidenav class="md-sidenav-left" md-is-locked-open="'true'">
+    <md-content style="height:375px">
+      <section ng-repeat="category in $ctrl.categories">
+        <md-subheader class="md-primary">
+          {{category.title}}
+        </md-subheader>
+        <md-list>
+          <md-list-item ng-repeat="tag in category.tags" ng-click="null">
+            <category title="tag.name"></category>
+          </md-list-item>
+        </md-list>
+      </section>
+    </md-content>
+  </md-sidenav>
+</md-content>
