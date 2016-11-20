@@ -1,13 +1,13 @@
 <md-content layout-padding>
   <md-sidenav class="md-sidenav-left" md-is-locked-open="'true'">
     <md-content style="height:375px">
-      <section ng-repeat="category in $ctrl.categories">
+      <section ng-repeat="(category, accounts) in $ctrl.accountsByCategory">
         <md-subheader class="md-primary">
-          {{category.title}}
+          {{category}}
         </md-subheader>
         <md-list>
-          <md-list-item ng-repeat="tag in category.tags" ng-click="null">
-            <category title="tag.name"></category>
+          <md-list-item ng-repeat="account in accounts" ng-click="null">
+            <category title="account.title"></category>
           </md-list-item>
         </md-list>
       </section>

@@ -4,12 +4,15 @@
   "description": "Store and retrieve all your passwords easily",
   "main": "main.js",
   "scripts": {
+    "postinstall": "bower install",
     "start": "gulp electron",
     "test": "gulp test"
   },
   "author": "mredjem <medhi.redjem@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "underscore": "^1.8.3",
+    "winston": "^2.3.0"
   }
 }

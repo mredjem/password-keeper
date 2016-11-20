@@ -1,26 +1,40 @@
 <md-content flex layout-padding>
-  <h3>{{homeCtrl.account.origin}}</h3>
-  <md-chips ng-model="homeCtrl.account.tags" readonly="true" md-removable="false"></md-chips>
+  <form name="homeCtrl.accountForm" ng-submit="homeCtrl.editAccount()" novalidate>
+    <md-input-container>
+      <label>Account category</label>
+      <md-select name="userCategory" ng-model="homeCtrl.account.category" md-noasterisk required>
+        <md-option ng-repeat="category in homeCtrl.categories" ng-value="category">
+          {{category}}
+        </md-option>
+      </md-select>
+    </md-input-container>
 
-  <form name="accountForm">
     <md-input-container class="md-block">
-      <label>Your account user name</label>
-      <input type="text" name="userName" ng-model="homeCtrl.account.user" md-noasterisk required>
-      <div ng-messages="accountForm.userName.$error">
-        <div ng-message="required">The user name is required</div>
+      <label>Account title</label>
+      <input type="text" name="userTitle" ng-model="homeCtrl.account.title" md-noasterisk required>
+      <div ng-messages="accountForm.userTitle.$error">
+        <div ng-message="required">An user title is required</div>
       </div>
     </md-input-container>
 
     <md-input-container class="md-block">
-      <label>Your account password</label>
+      <label>Account user name</label>
+      <input type="text" name="userName" ng-model="homeCtrl.account.user" md-noasterisk required>
+      <div ng-messages="accountForm.userName.$error">
+        <div ng-message="required">An user name is required</div>
+      </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+      <label>Account password</label>
       <input type="password" name="userPassword" ng-model="homeCtrl.account.password" md-noasterisk required>
       <div ng-messages="accountForm.userPassword.$error">
-        <div ng-message="required">The user password is required</div>
+        <div ng-message="required">A password is required</div>
       </div>
     </md-input-container>
 
     <div layout="row" layout-align="center center" layout-wrap>
-      <md-button class="md-raised md-primary">Edit</md-button>
+      <md-button type="submit"ng-disabled="formCtrl.form.$invalid && formCtrl.form.$submitted" class="md-raised md-primary">Edit</md-button>
       <md-button class="md-raised md-warn">Cancel</md-button>
     </div>
   </form>

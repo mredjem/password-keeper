@@ -2,11 +2,16 @@
 
   'use strict';
 
-  angular.module('view.home').controller('HomeController', function() {
+  angular.module('view.home').controller('HomeController', function($mdToast, CategoriesService, AccountService) {
     const ctrl = this;
 
-    ctrl.account = { origin: 'www.gmail.com', user: 'medhi.redjem@gmail.com', password: 'toto' };
-    ctrl.account.tags = ['GMail', 'Mail', 'Google'];
+    ctrl.categories = CategoriesService.getCategories();
+
+    ctrl.editAccount = function() {
+      AccountService.saveAccount(ctrl.account).then(() => {
+        console.log('saved account');
+      });
+    };
 
   });
 

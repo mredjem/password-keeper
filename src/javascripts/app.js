@@ -3,7 +3,7 @@
   'use strict';
 
   const modules = [
-    'ngRoute', 'ngMaterial', 'ngMdIcons', 'comp.directives', 'view.home', 'view.help'
+    'ngRoute', 'ngMaterial', 'ngMdIcons', 'comp.services', 'comp.directives', 'view.home', 'view.help', 'view.profile', 'view.settings'
   ];
 
   angular.module('app', modules)
@@ -21,9 +21,8 @@
   function theme() {
     return function($mdThemingProvider) {
       $mdThemingProvider.theme('default')
-        .primaryPalette('cyan')
-        .accentPalette('red')
-        .dark();
+        .primaryPalette('deep-purple')
+        .accentPalette('amber');
     };
   }
 

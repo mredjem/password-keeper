@@ -1,0 +1,11 @@
+<md-bottom-sheet class="md-grid">
+  <div ng-cloak>
+    <md-list layout="row" layout-align="center center" flex>
+      <md-list-item ng-repeat="setting in $ctrl.settings">
+        <div>
+          <div class="md-grid-text">{{setting.label}}</div>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+</md-bottom-sheet>

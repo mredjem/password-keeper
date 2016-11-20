@@ -6,8 +6,8 @@
     .component('notifications', {
       bindings: {},
       templateUrl: 'javascripts/components/directives/notifications/notifications.template.html',
-      controller: function() {
-        const ctrl = this;
+      controller: function(Application) {
+        this.application = Application;
       }
     });
 

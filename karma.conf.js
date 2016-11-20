@@ -1,7 +1,7 @@
 module.exports = function(config) {
   config.set({
 
-    basePath: './app',
+    basePath: './src',
     frameworks: ['jasmine'],
     autoWatch: true,
     plugins: [
@@ -16,12 +16,10 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-material/angular-material.js',
-      'bower_components/angular-material-icons/angular-material-icons.js',
-      'bower_components/angular-material-data-table/dist/md-data-table.js',
       'javascripts/app.js',
       'javascripts/components/**/index.js',
       'javascripts/components/**/*.js',
-      'javascripts/view*/**/*.router.js',
+      'javascripts/view*/**/index.js',
       'javascripts/view*/**/*.controller.js',
       '../test/*.test.js'
     ],
