@@ -5,14 +5,22 @@ language: node_js
 node_js:
   - "5.2.0"
 
-before_script:
+addons:
+  apt:
+    packages:
+      - xvfb
+
+before_install:
   - npm install -g bower
   - npm install -g gulp
+
+install:
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
   - npm install
   - cd src && npm install
-  - cd ..
 
-script: npm test
+script: cd .. && npm test
 
 branches:
   only:
