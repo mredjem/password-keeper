@@ -20,7 +20,9 @@ install:
   - npm install
   - cd src && npm install
 
-script: cd .. && npm test
+before_script: cd ..
+
+script: npm test
 
 branches:
   only:

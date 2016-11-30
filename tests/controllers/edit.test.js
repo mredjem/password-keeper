@@ -2,14 +2,14 @@
 
   'use strict';
 
-  describe('AccountController', function() {
+  describe('EditController', function() {
 
     let ctrl, scope;
 
     beforeEach(module('app'));
     beforeEach(inject(function($controller, $rootScope) {
       scope = $rootScope.$new();
-      ctrl = $controller('AccountController', { $scope: scope })
+      ctrl = $controller('EditController', { $scope: scope })
     }));
 
     it('should have three categories', function() {
