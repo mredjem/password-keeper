@@ -1,1 +1,1 @@
-require('./gulp');
+require('./tasks');

@@ -7,6 +7,9 @@
 
   angular.module('comp.services').factory('AccountService', function($q) {
 
+    /**
+     *
+     */
     let saveAccount = (account) => {
       let deferred = $q.defer();
 
@@ -19,8 +22,28 @@
       });
 
       return deferred.promise;
-    }
+    };
 
+    /**
+     *
+     */
+    let getAccountById = (accountId) => {
+      let deferred = $q.defer();
+
+      db.findOne({ _id: accountId }, (err, account) => {
+        if (err) {
+          return deferred.reject;
+        } else {
+          deferred.resolve(account);
+        }
+      });
+
+      return deferred.promise;
+    };
+
+    /**
+     *
+     */
     let getAccounts = (criterias = {}) => {
       let deferred = $q.defer();
 
@@ -35,6 +58,9 @@
       return deferred.promise;
     };
 
+    /**
+     *
+     */
     let deleteAccount = () => {
       let deferred = $q.defer();
 
@@ -51,6 +77,7 @@
 
     return {
       saveAccount: saveAccount,
+      getAccountById: getAccountById,
       getAccounts: getAccounts,
       deleteAccount: deleteAccount
     };

@@ -2,7 +2,15 @@
 
   'use strict';
 
-  const appConfig = require('./config/appConfig');
+  let appConfig = null;
+
+  // mandatory for karma-electron tests
+  try {
+    appConfig = require('./config/appConfig');
+  }
+  catch(err) {
+    appConfig = { version: '', name: '', environment: '' };
+  }
 
   angular.module('comp.services').value('Application', {
     version: appConfig.version,

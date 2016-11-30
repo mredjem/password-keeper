@@ -5,8 +5,10 @@
   const gulp = require('gulp');
   const jshint = require('gulp-jshint');
 
+  const configJson = require('../config.json');
+
   let jshintTask = () => {
-    return gulp.src('./app/javascripts/**/*.js')
+    return gulp.src(configJson.src)
       .pipe(jshint())
       .pipe(jshint.reporter('default'));
   };

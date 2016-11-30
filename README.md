@@ -1,5 +1,4 @@
 # Password Keeper
-==================
 
   - [Installation](#installation)
   - [Tests](#tests)
@@ -12,6 +11,7 @@
 
 ````
 npm install
+cd ./src && npm install
 ````
 
 Start the application.

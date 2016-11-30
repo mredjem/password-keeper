@@ -4,9 +4,7 @@
   "description": "Store and retrieve all your passwords easily",
   "main": "main.js",
   "scripts": {
-    "postinstall": "bower install",
-    "start": "gulp electron",
-    "test": "gulp test"
+    "postinstall": "bower install"
   },
   "author": "mredjem <medhi.redjem@gmail.com>",
   "license": "MIT",

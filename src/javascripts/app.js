@@ -3,7 +3,7 @@
   'use strict';
 
   const modules = [
-    'ngRoute', 'ngMaterial', 'ngMdIcons', 'comp.services', 'comp.directives', 'view.home', 'view.help', 'view.profile', 'view.settings'
+    'ngRoute', 'ngMaterial', 'ngMdIcons', 'comp.services', 'comp.directives', 'view.account', 'view.edit', 'view.help', 'view.profile', 'view.settings'
   ];
 
   angular.module('app', modules)
@@ -13,7 +13,7 @@
   function route() {
     return function($routeProvider) {
       $routeProvider.otherwise({
-        redirectTo: '/home'
+        redirectTo: '/edit'
       });
     };
   }

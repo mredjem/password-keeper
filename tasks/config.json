@@ -1,0 +1,6 @@
+{
+  "path": ["src"],
+  "src": ["src/javascripts/**/*.js"],
+  "lib": ["src/javascripts/bower_components"],
+  "doc": "doc"
+}

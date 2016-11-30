@@ -6,7 +6,7 @@
           {{category}}
         </md-subheader>
         <md-list>
-          <md-list-item ng-repeat="account in accounts" ng-click="null">
+          <md-list-item ng-repeat="account in accounts" aria-label="account" ng-click="$ctrl.selectAccount(account)">
             <category title="account.title"></category>
           </md-list-item>
         </md-list>

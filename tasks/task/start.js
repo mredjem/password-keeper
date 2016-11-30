@@ -7,11 +7,13 @@
   const process = require('child_process');
   const electron = require('electron');
 
+  const configJson = require('../config.json');
+
   let electronTask = () => {
-    process.spawn(electron, ['./src'], { stdio: 'inherit' });
+    process.spawn(electron, configJson.path, { stdio: 'inherit' });
   };
 
-  gulp.task('electron', electronTask);
+  gulp.task('start', electronTask);
   module.exports = electronTask;
 
 }());
