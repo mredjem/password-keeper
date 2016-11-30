@@ -1,5 +1,7 @@
 # Password Keeper
 
+[![Build Status](https://travis-ci.org/mredjem/password-keeper.svg?branch=master)](https://travis-ci.org/mredjem/password-keeper)
+
   - [Installation](#installation)
   - [Tests](#tests)
   - [License](#license)
@@ -17,7 +19,7 @@ cd ./src && npm install
 Start the application.
 
 ````
-gulp electron
+gulp start
 ````
 
 ## Tests
