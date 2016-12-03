@@ -6,12 +6,32 @@
   display: none;
 }
 
-md-chips .md-chips {
-  box-shadow: none;
+.container {
+  height: auto;
+  min-height: 100%;
+}
+
+.content {
+  height: 100%;
+  padding-bottom: 3em;
+}
+
+.sidenav-content {
+  height: 500px;
 }
 
 .footer {
+  width: 100%;
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 3em;
+  margin-top: -3em;
   text-align: center;
-  padding-top: 10px;
-  padding-right: 10px;
+  display: table;
+}
+
+.footer span {
+  display: table-cell;
+  vertical-align: middle;
 }

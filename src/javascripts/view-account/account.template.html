@@ -1,9 +1,12 @@
 <md-content flex layout-padding>
-  <h3>{{accountCtrl.selected.title}}</h3>
-
   <md-input-container class="md-block">
     <label>Account category</label>
     <input type="text" name="userCategory" ng-value="accountCtrl.selected.category" disabled>
+  </md-input-container>
+
+  <md-input-container class="md-block">
+    <label>Account title</label>
+    <input type="text" name="userTitle" ng-value="accountCtrl.selected.title" disabled>
   </md-input-container>
 
   <md-input-container class="md-block">
@@ -17,7 +20,7 @@
   </md-input-container>
 
   <div layout="row" layout-align="center center" layout-wrap>
-    <md-button class="md-raised md-primary">Edit</md-button>
-    <md-button class="md-raised md-warn">Delete</md-button>
+    <md-button class="md-raised md-primary" ng-click="accountCtrl.editAccount()">Edit</md-button>
+    <md-button class="md-raised md-warn" ng-click="accountCtrl.deleteAccount()">Delete</md-button>
   </div>
 </md-content>

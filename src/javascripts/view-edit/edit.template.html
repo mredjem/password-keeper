@@ -35,7 +35,7 @@
 
     <div layout="row" layout-align="center center" layout-wrap>
       <md-button type="submit" ng-disabled="editCtrl.accountForm.$invalid && editCtrl.accountForm.$submitted" class="md-raised md-primary">Edit</md-button>
-      <md-button class="md-raised md-warn">Cancel</md-button>
+      <md-button class="md-raised md-warn" ng-click="editCtrl.cancelEdit()">Cancel</md-button>
     </div>
   </form>
 </md-content>

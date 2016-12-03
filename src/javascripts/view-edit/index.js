@@ -7,7 +7,7 @@
 
   function route() {
     return function($routeProvider) {
-      $routeProvider.when('/edit', {
+      $routeProvider.when('/edit/:accountId?', {
         templateUrl: 'javascripts/view-edit/edit.template.html',
         controller: 'EditController',
         controllerAs: 'editCtrl'

@@ -7,7 +7,13 @@
 
     //
     ctrl.editAccount = () => {
-      $location.path('/edit');
+      let accountId = $routeParams.accountId;
+      $location.path(`/edit/${accountId}`);
+    };
+
+    //
+    ctrl.deleteAccount = () => {
+
     };
 
     /**
