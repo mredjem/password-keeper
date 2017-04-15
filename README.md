@@ -13,19 +13,18 @@
 
 ````
 npm install
-cd ./src && npm install
 ````
 
 Start the application.
 
 ````
-gulp start
+npm start
 ````
 
 ## Tests
 
 ````
-gulp test
+npm test
 ````
 
 ## License

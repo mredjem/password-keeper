@@ -1,39 +1,52 @@
+'use strict';
+
 module.exports = config => {
+  const gulpConfig = require('./gulp.config');
 
   config.set({
-    basePath: './src',
+
+    // base path to resolve patterns
+    basePath: './',
+
+    // frameworks to use
     frameworks: ['jasmine'],
+
+    // list of files / patterns to load
+    files: gulpConfig.files,
+
+    // list of files to exclude
+    exclude: gulpConfig.exclude,
+
+    preprocessors: gulpConfig.preprocessors,
+
+    // web server port
     port: 9876,
+
+    // enable / disable colors in console
     colors: true,
+
+    // level of logging
+    logLevel: config.LOG_INFO,
+
+    // enable / disable file watching
     autoWatch: true,
+
+    // browsers to start
+    browsers: ['Electron'],
+
+    // plugins to enable
     plugins: [
       'karma-jasmine',
       'karma-electron'
     ],
-    logLevel: config.LOG_INFO,
-    browsers: ['Electron'],
+
     captureTimeout: 60000,
-    files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-aria/angular-aria.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-animate/angular-animate.js',
-      'bower_components/angular-material/angular-material.js',
-      'bower_components/angular-material-icons/angular-material-icons.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'javascripts/app.js',
-      'javascripts/components/**/index.js',
-      'javascripts/components/**/*.js',
-      'javascripts/view*/**/index.js',
-      'javascripts/view*/**/*.controller.js',
-      '../tests/**/*.test.js'
-    ],
-    preprocessors: {
-      '**/*.js': ['electron']
-    },
+
+    // client settings
     client: {
       useIframe: false
     }
+
   });
 
 };
