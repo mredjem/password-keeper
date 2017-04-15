@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app" ng-strict-di>
+<html ng-app="app">
 <head>
   <style>
     .ng-hide {
@@ -17,6 +17,7 @@
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -32,11 +33,32 @@
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/bower_components/angular-material/angular-material.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:js scripts/app.js -->
   <!-- inject:js -->
+  <script src="/src/app/app.module.js"></script>
+  <script src="/src/app/blocks/exception/exception.module.js"></script>
+  <script src="/src/app/blocks/logger/logger.module.js"></script>
+  <script src="/src/app/blocks/router/router.module.js"></script>
+  <script src="/src/app/core/core.module.js"></script>
+  <script src="/src/app/layout/layout.module.js"></script>
+  <script src="/src/app/passwords/passwords.module.js"></script>
+  <script src="/src/app/widgets/widgets.module.js"></script>
+  <script src="/src/app/blocks/exception/exception-handler.provider.js"></script>
+  <script src="/src/app/blocks/logger/logger.js"></script>
+  <script src="/src/app/blocks/router/router-helper.provider.js"></script>
+  <script src="/src/app/core/core.route.js"></script>
+  <script src="/src/app/layout/shell.controller.js"></script>
+  <script src="/src/app/passwords/passwords.controller.js"></script>
+  <script src="/src/app/passwords/passwords.route.js"></script>
   <!-- endinject -->
   <!-- endbuild -->
 </body>

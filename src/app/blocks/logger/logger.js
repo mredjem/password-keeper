@@ -5,7 +5,7 @@
     .module('blocks.logger')
     .factory('logger', logger);
 
-  function logger('$log') {
+  function logger($log) {
     let service = {
 
       info: info,

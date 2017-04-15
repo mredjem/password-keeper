@@ -2,8 +2,10 @@
   'use strict';
 
   angular.module('app.core', [
-    'ui.router',
-    'blocks.logger'
+    'blocks.exception',
+    'blocks.logger',
+    'blocks.router',
+    'ui.router'
   ]);
 
 })();

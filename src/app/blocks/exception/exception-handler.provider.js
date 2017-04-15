@@ -5,8 +5,8 @@
     .module('blocks.exception')
     .config(config);
 
-  function config($provider) {
-    $provider.decorator('$exceptionHandler', extendExceptionHandler);
+  function config($provide) {
+    $provide.decorator('$exceptionHandler', extendExceptionHandler);
   }
 
   function extendExceptionHandler($delegate, logger) {

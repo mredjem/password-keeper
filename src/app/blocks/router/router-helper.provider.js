@@ -3,7 +3,7 @@
 
   angular
     .module('blocks.router')
-    .provider('routerHelperProvider', routerHelperProvider);
+    .provider('routerHelper', routerHelperProvider);
 
   function routerHelperProvider($locationProvider, $stateProvider, $urlRouterProvider) {
     let config = {
@@ -17,7 +17,7 @@
     $locationProvider.html5Mode(true);
 
     this.$get = RouterHelper;
-    function RouterHelper($location, $rootScope, $state, logger) {
+    function RouterHelper($rootScope, $location, $state, logger) {
       let hasOtherwise = false;
 
       let service = {
@@ -36,7 +36,10 @@
       }
 
       function handleRoutingErrors() {
-        $rootScope.$on('$stateChangeError', () => {
+        $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) => {
+          let message = `Error routing to ${toState.title}`;
+
+          logger.warning(message, [toState]);
           $location.path('/');
         });
       }

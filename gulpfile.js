@@ -73,9 +73,18 @@
    *
    * @return {Stream}
    */
-  gulp.task('templates', () => {
+  gulp.task('clean-code', () => {
+    return del(config.temp);
+  });
+
+  /**
+   *
+   * @return {Stream}
+   */
+  gulp.task('templates', ['clean-code'], () => {
     return gulp
       .src(config.templates)
+      .pipe($.htmlmin())
       .pipe($.angularTemplatecache(
         config.templateCache.file,
         config.templateCache.options
@@ -99,7 +108,10 @@
    * @return {Stream}
    */
   gulp.task('clean-styles', () => {
-    return clean(['**/*.css']);
+    const files = [
+      config.styles + '**/*css'
+    ];
+    return del(files);
   });
 
   /**
@@ -112,6 +124,7 @@
       .pipe($.plumber())
       .pipe($.sass())
       .pipe($.autoprefixer({ browsers: ['last 2 version', '> 5%'] }))
+      .pipe($.flatten())
       .pipe(gulp.dest(config.styles));
   });
 
@@ -136,7 +149,7 @@
     const templateCache = config.temp + config.templateCache.file;
 
     return gulp
-      .src(gulp.index)
+      .src(config.index)
       .pipe($.plumber())
       // inject templates
       .pipe(inject(templateCache, 'templates'))
@@ -232,7 +245,7 @@
       options.starttag = '<!-- inject:' + label + '.js -->';
     }
 
-    return $.inject(order(src, order), options);
+    return $.inject(orderSrc(src, order), options);
   }
 
   /**

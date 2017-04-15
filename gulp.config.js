@@ -15,7 +15,7 @@ module.exports = () => {
   const bowerFiles = wiredep({ devDependencies: true })['js'];
 
   const bower = {
-    json: require('./bower.json')
+    json: require('./bower.json'),
     directory: './bower_components/',
     ignorePath: '..'
   };
@@ -45,10 +45,10 @@ module.exports = () => {
       '**/app.module.js',
       '**/*.module.js',
       '**/*.js'
-    ]
+    ],
     report: report,
     root: root,
-    scss: '**/*.scss',
+    scss: clientApp + '**/*.scss',
     source: source,
     styles: styles,
     temp: temp,
@@ -60,7 +60,7 @@ module.exports = () => {
     optimized: {
       app: 'app.js',
       vendor: 'vendor.js'
-    }
+    },
 
     /**
      * Files to analyse with Plato.
@@ -73,7 +73,7 @@ module.exports = () => {
      * Angular templates cache.
      */
     templateCache: {
-      files: 'templates.js',
+      file: 'templates.js',
       options: {
         module: 'app.core',
         root: 'app/',
