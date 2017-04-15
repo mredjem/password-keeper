@@ -55,7 +55,7 @@
   });
 
   /**
-   *
+   * Wire-up the Bower dependencies.
    * @return {Stream}
    */
   gulp.task('wiredep', () => {
@@ -70,7 +70,7 @@
   });
 
   /**
-   *
+   * Delete the temporary folder.
    * @return {Stream}
    */
   gulp.task('clean-code', () => {
@@ -78,7 +78,7 @@
   });
 
   /**
-   *
+   * Compile the Angular templates.
    * @return {Stream}
    */
   gulp.task('templates', ['clean-code'], () => {
@@ -93,7 +93,7 @@
   });
 
   /**
-   *
+   * Wire-up user dependencies.
    * @return {Stream}
    */
   gulp.task('inject', ['wiredep', 'styles', 'templates'], () => {
@@ -104,7 +104,7 @@
   });
 
   /**
-   *
+   * Delete the stylesheets folder.
    * @return {Stream}
    */
   gulp.task('clean-styles', () => {
@@ -136,15 +136,15 @@
   });
 
   /**
-   *
+   * Prepare resources before packaging application.
    * @return {Stream}
    */
-  gulp.task('optimize', ['clean-dist'], () => {
-    const htmlIndexFilter = $.filter('!**/index.html', { restore: true });
+  gulp.task('optimize', ['clean-dist', 'inject'], () => {
+    const htmlIndexFilter = $.filter(['**', '!src/index.html'], { restore: true });
 
     const cssFilter = $.filter('**/*.css', { restore: true });
-    const jsAppFilter = $.filter('**/', { restore: true });
-    const jsVendorFilter = $.filter('**/', { restore: true });
+    const jsAppFilter = $.filter('**/' + config.optimized.app, { restore: true });
+    const jsVendorFilter = $.filter('**/' + config.optimized.vendor, { restore: true });
 
     const templateCache = config.temp + config.templateCache.file;
 
@@ -161,6 +161,7 @@
       .pipe(cssFilter.restore)
       // uglify app js
       .pipe(jsAppFilter)
+      .pipe($.babel({ presets: ['es2015'] }))
       .pipe($.ngAnnotate())
       .pipe($.uglify())
       .pipe(getHeader())
@@ -179,15 +180,15 @@
   });
 
   /**
-   *
+   * Build the application to the distribution folder.
    * @return {Stream}
    */
   gulp.task('build', ['optimize'], () => {
-    log('Building application...');
+    log('Built application !');
 
     const message = {
-      title: 'Running `gulp build`',
-      message: 'Building application to distribution folder'
+      title: 'Finished `gulp build`',
+      message: 'Built application to distribution folder'
     };
     notify(message);
   });
@@ -201,10 +202,17 @@
   });
 
   /**
-   *
+   * Serve the resources from distribution folder.
    */
   gulp.task('serve-dev', () => {
     serve(true);
+  });
+
+  /**
+   * Serve the resources.
+   */
+  gulp.task('serve-build', () => {
+    serve(false);
   });
 
   ////////////////
@@ -215,7 +223,7 @@
    */
   function serve(isDev) {
     const options = {
-      root: [config.root, config.source],
+      root: isDev ? [config.root, config.source] : [config.dist],
       livereload: true,
       port: port
     };
@@ -242,7 +250,7 @@
   function inject(src, label, order) {
     let options = {};
     if (label) {
-      options.starttag = '<!-- inject:' + label + '.js -->';
+      options.starttag = '<!-- inject:' + label + ':js -->';
     }
 
     return $.inject(orderSrc(src, order), options);
@@ -283,12 +291,12 @@
   function getHeader() {
     const pkg = require('./package.json');
     const banner = ['/**',
-      ' * <%= pkg.name %> - <%= pkg.description %>' +
-      ' * @version <%= pkg.version %>' +
-      ' * @author <%= pkg.author %>' +
-      ' * @link <%= pkg.homepage %>' +
-      ' * @license <%= pkg.license %>' +
-      ' */' +
+      ' * <%= pkg.name %> - <%= pkg.description %>',
+      ' * @version <%= pkg.version %>',
+      ' * @author <%= pkg.author %>',
+      ' * @link <%= pkg.homepage %>',
+      ' * @license <%= pkg.license %>',
+      ' */',
       ''].join('\n');
 
     return $.header(banner, { pkg: pkg });
