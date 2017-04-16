@@ -9,7 +9,7 @@
     $provide.decorator('$exceptionHandler', extendExceptionHandler);
   }
 
-  function extendExceptionHandler($delegate, logger) {
+  function extendExceptionHandler($delegate) {
     return (exception, cause) => {
       $delegate(exception, cause);
     };

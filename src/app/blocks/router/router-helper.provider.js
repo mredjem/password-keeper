@@ -6,10 +6,6 @@
     .provider('routerHelper', routerHelperProvider);
 
   function routerHelperProvider($locationProvider, $stateProvider, $urlRouterProvider) {
-    let config = {
-      docTitle: ''
-    };
-
     if (!(window.history && window.history.pushState)) {
       window.location.hash = '/';
     }
@@ -36,7 +32,7 @@
       }
 
       function handleRoutingErrors() {
-        $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) => {
+        $rootScope.$on('$stateChangeError', (event, toState) => {
           let message = `Error routing to ${toState.title}`;
 
           logger.warning(message, [toState]);

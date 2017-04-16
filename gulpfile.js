@@ -1,6 +1,7 @@
 (function() {
   'use strict';
 
+  const args = require('yargs').argv;
   const del = require('del');
   const glob = require('glob');
   const path = require('path');
@@ -26,7 +27,16 @@
       .src(config.allJs)
       .pipe($.jshint())
       .pipe($.jshint.reporter('jshint-stylish'))
-      .pipe($.jshint.reporter('fail'));
+      .pipe($.jshint.reporter('fail'))
+      .pipe($.jscs());
+  });
+
+  /**
+   * Launch the unit tests.
+   * @return {Stream}
+   */
+  gulp.task('test', ['vet'], () => {
+    startTests();
   });
 
   /**
@@ -45,12 +55,10 @@
       exclude: excludeFiles
     };
 
-    plato.inspect(files, outputDir, options, onPlatoComplete);
-
-    function onPlatoComplete(report) {
+    plato.inspect(files, outputDir, options, (report) => {
       const overview = plato.getOverviewReport(report);
       log(overview.summary);
-    }
+    });
 
   });
 
@@ -99,7 +107,7 @@
   gulp.task('inject', ['wiredep', 'styles', 'templates'], () => {
     return gulp
       .src(config.index)
-      .pipe(inject(config.css))
+      .pipe(inject(config.css + '**/*.css'))
       .pipe(gulp.dest(config.source));
   });
 
@@ -139,7 +147,7 @@
    * Prepare resources before packaging application.
    * @return {Stream}
    */
-  gulp.task('optimize', ['clean-dist', 'inject'], () => {
+  gulp.task('optimize', ['clean-dist', 'test', 'inject'], () => {
     const htmlIndexFilter = $.filter(['**', '!src/index.html'], { restore: true });
 
     const cssFilter = $.filter('**/*.css', { restore: true });
@@ -157,7 +165,7 @@
       .pipe($.useref({ searchPath: './' }))
       // minify css
       .pipe(cssFilter)
-      .pipe($.pleeease())
+      .pipe($.cssmin())
       .pipe(cssFilter.restore)
       // uglify app js
       .pipe(jsAppFilter)
@@ -187,9 +195,13 @@
     log('Built application !');
 
     const message = {
-      title: 'Finished `gulp build`',
-      message: 'Built application to distribution folder'
+      title: 'gulp build',
+      subtitle: 'Deployed to the distribution folder',
+      message: 'Run `gulp serve-build` to start'
     };
+
+    del(config.temp);
+    log(message);
     notify(message);
   });
 
@@ -215,7 +227,30 @@
     serve(false);
   });
 
+  /**
+   *
+   * @return {Stream}
+   */
+  gulp.task('bump', () => {
+    const options = {
+
+    };
+
+    return gulp
+      .src(config.packages)
+      .pipe($.print())
+      .pipe($.bump(options))
+      .pipe(gulp.dest(config.root));
+  });
+
   ////////////////
+
+  /**
+   *
+   */
+  function startTests() {
+
+  }
 
   /**
    * Start a local web server to serve resources.

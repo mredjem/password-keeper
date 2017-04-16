@@ -6,7 +6,6 @@
     .controller('PasswordsController', PasswordsController);
 
   function PasswordsController() {
-    const self = this;
   }
 
 })();

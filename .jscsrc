@@ -1,0 +1,57 @@
+{
+  "excludeFiles": ["node_modules/**", "bower_components/**"],
+  "validateIndentation": 2,
+  "jsDoc": {
+    "checkAnnotations": true,
+    "checkParamExistence": true,
+    "checkParamNames": true,
+    "requireParamTypes": true,
+    "checkReturnTypes": true
+  },
+  "maximumLineLength": {
+    "value": 40,
+    "tabSize": 2
+  },
+  "maximumNumberOfLines": 500,
+  "requireArrowFunctions": true,
+  "requireCamelCaseOrUpperCaseIdentifiers": true,
+  "requireCapitalizedConstructorsNew": true,
+  "requireCapitalizedConstructors": true,
+  "requireLineFeedAtFileEnd": true,
+  "requireCurlyBraces": [
+    "if",
+    "else",
+    "for",
+    "while",
+    "do",
+    "try",
+    "catch",
+    "case",
+    "default"
+  ],
+  "requireDotNotation": true,
+  "requireLineBreakAfterVariableAssignment": true,
+  "requirePaddingNewLinesAfterUseStrict": true,
+  "requireParenthesesAroundIIFE": true,
+  "requireSemicolons": true,
+  "requireSpaceAfterComma": true,
+  "requireSpaceAfterKeywords": [
+    "do",
+    "for",
+    "if",
+    "else",
+    "switch",
+    "case",
+    "try",
+    "catch",
+    "void",
+    "while",
+    "with",
+    "return",
+    "typeof",
+    "function"
+  ],
+  "requireSpaceBetweenArguments": true,
+  "requireTemplateStrings": true,
+  "requireUseStrict": true
+}

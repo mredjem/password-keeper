@@ -1,52 +1,54 @@
-'use strict';
+(function() {
+  'use strict';
 
-module.exports = config => {
-  const gulpConfig = require('./gulp.config');
+  module.exports = config => {
+    const gulpConfig = require('./gulp.config');
 
-  config.set({
+    config.set({
 
-    // base path to resolve patterns
-    basePath: './',
+      // base path to resolve patterns
+      basePath: './',
 
-    // frameworks to use
-    frameworks: ['jasmine'],
+      // frameworks to use
+      frameworks: ['jasmine'],
 
-    // list of files / patterns to load
-    files: gulpConfig.files,
+      // list of files / patterns to load
+      files: gulpConfig.files,
 
-    // list of files to exclude
-    exclude: gulpConfig.exclude,
+      // list of files to exclude
+      exclude: gulpConfig.exclude,
 
-    preprocessors: gulpConfig.preprocessors,
+      preprocessors: gulpConfig.preprocessors,
 
-    // web server port
-    port: 9876,
+      // web server port
+      port: 9876,
 
-    // enable / disable colors in console
-    colors: true,
+      // enable / disable colors in console
+      colors: true,
 
-    // level of logging
-    logLevel: config.LOG_INFO,
+      // level of logging
+      logLevel: config.LOG_INFO,
 
-    // enable / disable file watching
-    autoWatch: true,
+      // enable / disable file watching
+      autoWatch: true,
 
-    // browsers to start
-    browsers: ['Electron'],
+      // browsers to start
+      browsers: ['Electron'],
 
-    // plugins to enable
-    plugins: [
-      'karma-jasmine',
-      'karma-electron'
-    ],
+      // plugins to enable
+      plugins: [
+        'karma-jasmine',
+        'karma-electron'
+      ],
 
-    captureTimeout: 60000,
+      captureTimeout: 60000,
 
-    // client settings
-    client: {
-      useIframe: false
-    }
+      // client settings
+      client: {
+        useIframe: false
+      }
 
-  });
+    });
 
-};
+  };
+})();
