@@ -1,5 +1,6 @@
 {
   "directory": "bower_components",
+  "allow_root": true,
   "scripts": {
     "postinstall": "gulp wiredep"
   }

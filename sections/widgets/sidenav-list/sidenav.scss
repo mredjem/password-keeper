@@ -1,0 +1,9 @@
+/**
+ * Side navigation bar component stylesheet.
+ */
+
+$sidenav-block-name: sidenav;
+
+.#{$sidenav-block-name} {
+  height: 100%;
+}

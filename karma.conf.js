@@ -10,7 +10,7 @@
       basePath: './',
 
       // frameworks to use
-      frameworks: ['jasmine'],
+      frameworks: ['mocha'],
 
       // list of files / patterns to load
       files: gulpConfig.files,
@@ -18,6 +18,7 @@
       // list of files to exclude
       exclude: gulpConfig.exclude,
 
+      // preprocess matching files beforehand
       preprocessors: gulpConfig.preprocessors,
 
       // web server port
@@ -37,7 +38,6 @@
 
       // plugins to enable
       plugins: [
-        'karma-jasmine',
         'karma-electron'
       ],
 

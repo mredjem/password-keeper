@@ -1,0 +1,15 @@
+/**
+ * Application footer stylesheet.
+ */
+.app-footer {
+  height: 30px;
+  font-size: 12px;
+  font-weight: lighter;
+  border-top: 1px solid rgba(0, 0, 0, 0.08); }
+  .app-footer__title {
+    padding-left: 5px; }
+  .app-footer__link {
+    text-decoration: none;
+    color: inherit; }
+  .app-footer__version {
+    padding-right: 5px; }

@@ -1,0 +1,16 @@
+/**
+ * Side navigation bar item component stylesheet.
+ */
+.sidenav-item {
+  padding-left: 10px;
+  height: 65px;
+  min-height: 65px; }
+  .sidenav-item--hovered:hover {
+    cursor: pointer; }
+  .sidenav-item__infos {
+    height: 100%; }
+    .sidenav-item__infos__title {
+      font-size: 18px;
+      font-weight: bolder; }
+    .sidenav-item__infos__subtitle {
+      font-size: 14px; }

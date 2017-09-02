@@ -1,0 +1,14 @@
+<div ng-controller="ShellController as shellCtrl" layout="column" flex>
+  <header role="navigation" class="header" md-whiteframe="1">
+    <nav-bar></nav-bar>
+  </header>
+  <section role="main" class="content" layout="column" flex>
+    <div layout="row" flex>
+      <div ui-view="categories" layout="column"></div>
+      <div ui-view="passwords" layout="column" flex></div>
+    </div>
+  </section>
+  <footer class="footer">
+    <app-footer title="password keeper" version="v2.0.0"></app-footer>
+  </footer>
+</div>

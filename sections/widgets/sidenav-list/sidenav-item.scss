@@ -1,0 +1,28 @@
+/**
+ * Side navigation bar item component stylesheet.
+ */
+
+$sidenav-item-block-name: sidenav-item;
+
+.#{$sidenav-item-block-name} {
+  padding-left: 10px;
+  height: 65px;
+  min-height: 65px;
+
+  &--hovered:hover {
+    cursor: pointer;
+  }
+
+  &__infos {
+    height: 100%;
+
+    &__title {
+      font-size: 18px;
+      font-weight: bolder;
+    }
+
+    &__subtitle {
+      font-size: 14px;
+    }
+  }
+}

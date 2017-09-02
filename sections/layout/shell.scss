@@ -1,0 +1,26 @@
+/**
+ * Shell page stylesheet.
+ */
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(238, 238, 238)!important;
+}
+
+.header {
+  display: block;
+  background-color: #FFFFFF;
+  min-height: 55px;
+  z-index: 2;
+}
+
+.content {
+  padding-top: 3px;
+}
+
+.footer {
+  display: block;
+  background-color: #FFFFFF;
+  min-height: 30px;
+  z-index: 2;
+}
